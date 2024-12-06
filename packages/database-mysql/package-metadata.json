@@ -8,6 +8,7 @@
   "environmentVariables": {
     "MYSQL_IMAGE": "isanteplus-mysql:5.7.44",
     "MYSQL_ROOT_PASSWORD": "change_for_prod!",
+    "MYSQL_USE_LOCAL": "false",
     "OMRS_CONFIG_CONNECTION_USERNAME_1": "openmrs",
     "OMRS_CONFIG_CONNECTION_PASSWORD_1": "change_for_prod!",
     "OPENMRS_DB_COUNT": "1",
