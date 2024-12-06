@@ -7,4 +7,5 @@ packages:
   - database-mysql
   - emr-isanteplus
   - data-pipeline-isanteplus
+  - reverse-proxy-nginx
 

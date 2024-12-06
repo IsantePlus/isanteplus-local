@@ -22,8 +22,7 @@ services:
         source: config.json
       
     networks:
-     - openhim
-     - shr
+     - isanteplus-local
 
 configs:
   config.json:
@@ -35,9 +34,11 @@ networks:
   openhim:
     name: openhim_public
     external: true
-  shr:
-    name: shr
+  isanteplus-local:
+    name: isanteplus-local
     external: true
+
+``
 
 
 
