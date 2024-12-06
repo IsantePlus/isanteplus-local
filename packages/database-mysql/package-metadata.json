@@ -1,0 +1,22 @@
+{
+  "id": "database-mysql",
+  "name": "MySQL Database Package",
+  "description": "MySQL Database Package using custom MySQL 5.7 image",
+  "type": "infrastructure",
+  "version": "0.1.0",
+  "dependencies": [],
+  "environmentVariables": {
+    "MYSQL_IMAGE": "isanteplus-mysql:5.7.44",
+    "MYSQL_ROOT_PASSWORD": "change_for_prod!",
+    "OMRS_CONFIG_CONNECTION_USERNAME_1": "openmrs",
+    "OMRS_CONFIG_CONNECTION_PASSWORD_1": "change_for_prod!",
+    "OPENMRS_DB_COUNT": "1",
+    "INITIAL_SQL_FILE": "/docker-entrypoint-initdb.d/initial.dump",
+    "SWARM_STACK_NAME": "mysql_stack",
+    "MYSQL_INSTANCES": "1", 
+    "MYSQL_CPU_LIMIT": "0",
+    "MYSQL_CPU_RESERVE": "0.1",
+    "MYSQL_MEMORY_LIMIT": "1G",
+    "MYSQL_MEMORY_RESERVE": "256M"
+  }
+}

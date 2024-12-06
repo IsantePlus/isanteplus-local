@@ -1,0 +1,10 @@
+projectName: isanteplus-local
+image: itechuw/isanteplus-local:latest
+logPath: /tmp/logs
+
+packages:
+  - interoperability-layer-openhim
+  - database-mysql
+  - emr-isanteplus
+  - data-pipeline-isanteplus
+

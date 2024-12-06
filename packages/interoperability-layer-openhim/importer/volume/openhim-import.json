@@ -1,0 +1,48 @@
+{
+  "Users": [
+    {
+      "provider": "token",
+      "groups": ["admin"],
+      "firstname": "Super",
+      "surname": "User",
+      "email": "root@openhim.org",
+      "expiry": null,
+      "locked": false,
+      "token": null,
+      "tokenType": null
+    }
+  ],
+  "Passports": [
+    {
+      "protocol": "local",
+      "email": "root@openhim.org",
+      "password": "$2a$10$qvja1lAaItmcZolkoKCPn.9EXY2b8s9dTlUFx36Q7ey0rieXXnxVC"
+    },
+    {
+      "protocol": "token",
+      "email": "root@openhim.org",
+      "passwordHash": "c5e14f0062bfac45bf20f0fcf0403e758a2233756e40e7b328e1f10dfef3d8ba57c2bf230ee9fd627956fbb4e57fab7e32efe108db76d515f1f61f6b853ffba3",
+      "passwordAlgorithm": "sha512",
+      "passwordSalt": "c5f2a9fd7907e1a1c6658841426e6f5d"
+    }
+  ],
+  "Clients": [
+    {
+      "roles": ["instant"],
+      "customTokenID": "test",
+      "clientID": "test",
+      "name": "Test Client"
+    },
+    {
+      "roles": [
+        "emr"
+      ],
+      "clientID": "isanteplus",
+      "name": "iSantePlus Demo",
+      "passwordAlgorithm": "sha512",
+      "passwordSalt": "a31ca7a31c216138910953ae75530635",
+      "passwordHash": "b03433407c82dcf33300ec1ec36dfbd4caf6c8851c5b4ba6444c219b72934507fa075f51a0d4c2495ec00e24be2100145b975e39811cd476b96599b7028af609"
+    }
+  ],
+  "Channels": []
+}
