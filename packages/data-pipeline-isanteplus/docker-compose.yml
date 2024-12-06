@@ -38,8 +38,6 @@ networks:
     name: isanteplus-local
     external: true
 
-``
-
 
 
 
