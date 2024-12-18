@@ -51,7 +51,7 @@ for i in $(seq 1 "$OPENMRS_DB_COUNT"); do
   if [ -z "$OMRS_CONFIG_CONNECTION_PASSWORD_1" ]; then
     password="$OMRS_CONFIG_CONNECTION_PASSWORD_1"
   else
-    password="dev_password_only"
+    password="change_for_prod!"
   fi
 
   echo "Creating database: $db"

@@ -24,10 +24,12 @@ services:
       - public
       - reverse-proxy
       - mysql
+      - openhim
 
 
 volumes:
   isanteplus-data:
+
 networks:
   public:
     external: true
@@ -38,3 +40,6 @@ networks:
   reverse-proxy:
     name: reverse-proxy_public
     external: true
+  openhim:
+    external: true
+    name: openhim_public
