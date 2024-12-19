@@ -1,9 +1,6 @@
 services:
   isanteplus:
     image: itechuw/docker-isanteplus-server:local
-    build:
-      context: .
-      dockerfile: Dockerfile
     environment:
       - OMRS_JAVA_MEMORY_OPTS=${OMRS_JAVA_MEMORY_OPTS}
       - OMRS_CONFIG_CONNECTION_SERVER=${OMRS_CONFIG_CONNECTION_SERVER}

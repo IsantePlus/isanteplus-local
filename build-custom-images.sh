@@ -47,9 +47,7 @@ while IFS= read -r line; do
   export "$line"
 done <<< "$envs"
 
-docker compose \
-    -f packages/emr-isanteplus/docker-compose.yml \
-    build
+docker build -t itechuw/docker-isanteplus-server:local ./projects/emr-isanteplus
 
 ##
 # Cert Maintenance
