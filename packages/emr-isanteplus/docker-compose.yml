@@ -23,7 +23,6 @@ services:
       - mysql
       - openhim
 
-
 volumes:
   isanteplus-data:
 

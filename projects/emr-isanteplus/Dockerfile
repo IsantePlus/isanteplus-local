@@ -40,7 +40,8 @@ ENV OMRS_DEV_DEBUG_PORT="1044"
 # Additional environment variables as needed.  This should match the name of the distribution supplied OpenMRS war file
 ENV OMRS_WEBAPP_NAME="openmrs"
 
-COPY ./distribution /openmrs/distribution
+COPY ./distribution/openmrs_modules /openmrs/distribution/openmrs_modules
+COPY ./distribution/openmrs_webapps /openmrs/distribution/openmrs_webapps
 
 # Set up volumes.
 # /openmrs/data represents the data persisted inside the container to the filesystem for OpenMRS
