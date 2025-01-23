@@ -4,3 +4,67 @@ services:
       - target: 3306
         published: 3336
         mode: host
+  mysql-legacy:
+    image: isanteplus-mysql:legacy
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci --sql_mode=""
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PW}
+      - OMRS_CONFIG_CONNECTION_USERNAME_1=${OMRS_CONFIG_CONNECTION_USERNAME_2}
+      - OMRS_CONFIG_CONNECTION_PASSWORD_1=${OMRS_CONFIG_CONNECTION_PASSWORD_2}
+      - OPENMRS_DB_COUNT=1
+      - INITIAL_SQL_FILE=${INITIAL_SQL_FILE}
+      - MYSQL_ROOT_HOST=% # Allow docker containers to connect to mysql
+    volumes:
+      - isanteplus-mysql-legacy:/var/lib/mysql
+    networks:
+      - mysql
+    configs:
+      - source: mysql.cnf
+        target: /etc/mysql/conf.d/custom.cnf
+    deploy:
+      replicas: 1
+    ports:
+      - target: 3306
+        published: 3337
+        protocol: tcp
+        mode: host
+  mysql-284:
+    image: isanteplus-mysql:legacy
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_general_ci --sql_mode=""
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PW}
+      - OMRS_CONFIG_CONNECTION_USERNAME_1=${OMRS_CONFIG_CONNECTION_USERNAME_2}
+      - OMRS_CONFIG_CONNECTION_PASSWORD_1=${OMRS_CONFIG_CONNECTION_PASSWORD_2}
+      - OPENMRS_DB_COUNT=1
+      - INITIAL_SQL_FILE=${INITIAL_SQL_FILE}
+      - MYSQL_ROOT_HOST=% # Allow docker containers to connect to mysql
+    volumes:
+      - isanteplus-mysql-284:/var/lib/mysql
+    networks:
+      - mysql
+    configs:
+      - source: mysql.cnf
+        target: /etc/mysql/conf.d/custom.cnf
+    deploy:
+      replicas: 1
+    ports:
+      - target: 3306
+        published: 3338
+        protocol: tcp
+        mode: host      
+configs:
+  mysql.cnf:
+    file: ./config/mysql-legacy.cnf
+    name: mysql.cnf
+    labels:
+      name: mysql
+
+networks:
+  mysql:
+    external: true
+    name: mysql_public
+
+volumes:
+  isanteplus-mysql-legacy:
+  isanteplus-mysql-284:
+    

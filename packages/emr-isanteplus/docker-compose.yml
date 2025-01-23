@@ -1,9 +1,6 @@
 services:
   isanteplus:
     image: itechuw/docker-isanteplus-server:local
-    build:
-      context: .
-      dockerfile: Dockerfile
     environment:
       - OMRS_JAVA_MEMORY_OPTS=${OMRS_JAVA_MEMORY_OPTS}
       - OMRS_CONFIG_CONNECTION_SERVER=${OMRS_CONFIG_CONNECTION_SERVER}
@@ -24,10 +21,11 @@ services:
       - public
       - reverse-proxy
       - mysql
-
+      - openhim
 
 volumes:
   isanteplus-data:
+
 networks:
   public:
     external: true
@@ -38,3 +36,6 @@ networks:
   reverse-proxy:
     name: reverse-proxy_public
     external: true
+  openhim:
+    external: true
+    name: openhim_public

@@ -1,0 +1,75 @@
+services:
+  isanteplus:
+    ports:
+      - target: 8080
+        published: 8090
+        mode: host
+
+  isanteplus-legacy:
+    image: itechuw/docker-isanteplus-server:legacy
+    environment:
+      - OMRS_JAVA_MEMORY_OPTS=${OMRS_JAVA_MEMORY_OPTS}
+      - OMRS_CONFIG_CONNECTION_SERVER=${OMRS_CONFIG_CONNECTION_SERVER}
+      - OMRS_CONFIG_CREATE_DATABASE_USER=${OMRS_CONFIG_CREATE_DATABASE_USER}
+      - OMRS_CONFIG_CREATE_TABLES=${OMRS_CONFIG_CREATE_TABLES}
+      - OMRS_CONFIG_ADD_DEMO_DATA=${OMRS_CONFIG_ADD_DEMO_DATA}
+      - OMRS_CONFIG_CONNECTION_URL=${OMRS_CONFIG_CONNECTION_URL_2}
+      - OMRS_CONFIG_HAS_CURRENT_OPENMRS_DATABASE=${OMRS_CONFIG_HAS_CURRENT_OPENMRS_DATABASE}
+      - OMRS_JAVA_SERVER_OPTS=${OMRS_JAVA_SERVER_OPTS}
+      - OMRS_CONFIG_CONNECTION_USERNAME=${OMRS_CONFIG_CONNECTION_USERNAME_2}
+      - OMRS_CONFIG_CONNECTION_PASSWORD=${OMRS_CONFIG_CONNECTION_PASSWORD_2}
+      - OMRS_DEV_DEBUG_PORT=${OMRS_DEV_DEBUG_PORT}
+    volumes:
+      - /var/lib/openmrs-volume/openmrs-data2:/openmrs/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - public
+      - reverse-proxy
+      - mysql
+      - openhim
+    ports:
+      - target: 8080
+        published: 8091
+        mode: host
+  isanteplus-charess:
+    image: itechuw/docker-isanteplus-server:2.8.4
+    environment:
+      - OMRS_JAVA_MEMORY_OPTS=${OMRS_JAVA_MEMORY_OPTS}
+      - OMRS_CONFIG_CONNECTION_SERVER=${OMRS_CONFIG_CONNECTION_SERVER}
+      - OMRS_CONFIG_CREATE_DATABASE_USER=${OMRS_CONFIG_CREATE_DATABASE_USER}
+      - OMRS_CONFIG_CREATE_TABLES=${OMRS_CONFIG_CREATE_TABLES}
+      - OMRS_CONFIG_ADD_DEMO_DATA=${OMRS_CONFIG_ADD_DEMO_DATA}
+      - OMRS_CONFIG_CONNECTION_URL=${OMRS_CONFIG_CONNECTION_URL_2}
+      - OMRS_CONFIG_HAS_CURRENT_OPENMRS_DATABASE=${OMRS_CONFIG_HAS_CURRENT_OPENMRS_DATABASE}
+      - OMRS_JAVA_SERVER_OPTS=${OMRS_JAVA_SERVER_OPTS}
+      - OMRS_CONFIG_CONNECTION_USERNAME=${OMRS_CONFIG_CONNECTION_USERNAME_2}
+      - OMRS_CONFIG_CONNECTION_PASSWORD=${OMRS_CONFIG_CONNECTION_PASSWORD_2}
+      - OMRS_DEV_DEBUG_PORT=${OMRS_DEV_DEBUG_PORT}
+    volumes:
+      - /var/lib/openmrs-volume/openmrs-data3:/openmrs/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      - public
+      - reverse-proxy
+      - mysql
+      - openhim
+    ports:
+      - target: 8080
+        published: 8092
+        mode: host
+
+networks:
+  public:
+    external: true
+    name: isanteplus_public
+  mysql:
+    external: true
+    name: mysql_public
+  reverse-proxy:
+    name: reverse-proxy_public
+    external: true
+  openhim:
+    external: true
+    name: openhim_public
