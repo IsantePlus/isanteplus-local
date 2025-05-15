@@ -1,0 +1,17 @@
+*.class
+.settings
+.project
+.classpath
+target
+
+# Package Files #
+*.jar
+*.war
+*.ear
+/target/*
+*/doc/*
+*.iml
+.idea
+
+.DS_Store
+.flattened-pom.xml
