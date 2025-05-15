@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Beans to add to the current Application context definition -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  		    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+  		    http://www.springframework.org/schema/context
+  		    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+  		    http://www.springframework.org/schema/jee
+  		    http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+  		    http://www.springframework.org/schema/tx
+  		    http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+  		    http://www.springframework.org/schema/aop
+  		    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+  		    http://www.springframework.org/schema/util
+  		    http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+    <context:component-scan base-package="org.openmrs.module.labintegration"/>
+
+    <!-- Wraps LabIntegrationService methods in DB transactions and OpenMRS interceptors,
+    which set audit info like dateCreated, changedBy, etc.-->
+<!--    <bean id="labintegration.LabIntegrationService"
+          class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref bean="transactionManager"/>
+        </property>
+        <property name="target">
+            <bean class="org.openmrs.module.labintegration.api.impl.LabIntegrationServiceImpl">
+                <property name="dao" ref="labintegration.LabIntegrationDao"/>
+            </bean>
+        </property>
+        <property name="preInterceptors">
+            <ref bean="serviceInterceptors"/>
+        </property>
+        <property name="transactionAttributeSource">
+            <ref bean="transactionAttributeSource"/>
+        </property>
+    </bean>
+
+    &lt;!&ndash; Adds LabIntegrationService to OpenMRS context so it can be accessed
+    calling Context.getService(LabIntegrationService.class) &ndash;&gt;
+    <bean parent="serviceContext">
+        <property name="moduleService">
+            <list>
+                <value>org.openmrs.module.labintegration.api.LabIntegrationService</value>
+                <ref bean="labintegration.LabIntegrationService"/>
+            </list>
+        </property>
+    </bean>-->
+    <bean id="hL7ServiceLabIntegration" class="org.openmrs.hl7.impl.HL7ServiceImpl" factory-method="getInstance">
+        <property name="HL7DAO"><ref bean="hL7DAO"/></property>
+        <property name="parser"><bean class="ca.uhn.hl7v2.parser.GenericParser" /></property>
+        <property name="router"><bean class="ca.uhn.hl7v2.app.MessageTypeRouter" /></property>
+        <property name="HL7Handlers">
+            <map>
+                <entry key="ORU_R01"><bean class="org.openmrs.module.labintegration.api.hl7.handler.OruR01Handler"/></entry>
+            </map>
+        </property>
+    </bean>
+</beans>

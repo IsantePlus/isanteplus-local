@@ -1,0 +1,53 @@
+/* line 1, C:/Users/ITECH/Desktop/isanteplusupgrade/openmrs-module-mirebalaisreports/omod/src/main/compass/sass/dailyReport.scss */
+#current-date {
+  display: inline-block;
+}
+
+/* line 5, C:/Users/ITECH/Desktop/isanteplusupgrade/openmrs-module-mirebalaisreports/omod/src/main/compass/sass/dailyReport.scss */
+#date-header, #view-cohort {
+  text-align: center;
+}
+/* line 8, C:/Users/ITECH/Desktop/isanteplusupgrade/openmrs-module-mirebalaisreports/omod/src/main/compass/sass/dailyReport.scss */
+#date-header p, #view-cohort p {
+  margin-bottom: 10px;
+}
+
+/* line 13, C:/Users/ITECH/Desktop/isanteplusupgrade/openmrs-module-mirebalaisreports/omod/src/main/compass/sass/dailyReport.scss */
+#view-cohort {
+  margin-top: 1em;
+}
+
+/* line 17, C:/Users/ITECH/Desktop/isanteplusupgrade/openmrs-module-mirebalaisreports/omod/src/main/compass/sass/dailyReport.scss */
+.dataset {
+  margin-bottom: 1em;
+}
+
+/* line 22, C:/Users/ITECH/Desktop/isanteplusupgrade/openmrs-module-mirebalaisreports/omod/src/main/compass/sass/dailyReport.scss */
+.patient-list-table th {
+  min-width: 83px;
+  font-size: 0.8em;
+  word-break: normal;
+  padding: 5px;
+  text-align: center;
+}
+/* line 30, C:/Users/ITECH/Desktop/isanteplusupgrade/openmrs-module-mirebalaisreports/omod/src/main/compass/sass/dailyReport.scss */
+.patient-list-table td {
+  text-align: center;
+}
+/* line 34, C:/Users/ITECH/Desktop/isanteplusupgrade/openmrs-module-mirebalaisreports/omod/src/main/compass/sass/dailyReport.scss */
+.patient-list-table a {
+  font-size: 1.2em;
+  cursor: pointer;
+}
+/* line 39, C:/Users/ITECH/Desktop/isanteplusupgrade/openmrs-module-mirebalaisreports/omod/src/main/compass/sass/dailyReport.scss */
+.patient-list-table .indicator-in {
+  background-color: #e6ffe9;
+}
+/* line 43, C:/Users/ITECH/Desktop/isanteplusupgrade/openmrs-module-mirebalaisreports/omod/src/main/compass/sass/dailyReport.scss */
+.patient-list-table .indicator-out {
+  background-color: #fff5d6;
+}
+/* line 47, C:/Users/ITECH/Desktop/isanteplusupgrade/openmrs-module-mirebalaisreports/omod/src/main/compass/sass/dailyReport.scss */
+.patient-list-table .indicator-total {
+  background-color: #FFF;
+}

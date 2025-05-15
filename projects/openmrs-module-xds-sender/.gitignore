@@ -1,0 +1,30 @@
+*.class
+.settings
+.project
+.classpath
+target
+*.iml
+.idea
+
+# Package Files #
+*.jar
+*.war
+*.ear
+/target/*
+
+# Mac OSX
+.DS_Store
+
+# Log Files
+*.log
+
+# test files
+api/null/*
+null/*
+
+#vs Code
+.vscode/*
+api/id_file
+
+.flattened-pom.xml
+

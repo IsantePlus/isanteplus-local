@@ -1,0 +1,908 @@
+[
+{
+        "id": "${project.parent.artifactId}.reports",
+        "description": "Homepage showing a list of different kinds of reports",
+        "order": 10,
+        "extensionPoints": [
+            {
+                "id": "org.openmrs.module.reportingui.reports.overview",
+                "description": "Links to available Overview Reports",
+                "supportedExtensionTypes": [ "link" ]
+            },
+            {
+                "id": "org.openmrs.module.reportingui.reports.dataquality",
+                "description": "Links to available Data Quality Reports",
+                "supportedExtensionTypes": [ "link" ]
+            },
+            {
+                "id": "org.openmrs.module.reportingui.reports.dataexport",
+                "description": "Links to available Data Exports",
+                "supportedExtensionTypes": [ "link" ]
+            }
+        ],
+        "extensions": [
+            {
+                "id": "reportingui.reports.homepagelink",
+                "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+                "type": "link",
+                "label": "reportingui.reportsapp.home.title",
+                "url": "reportingui/reportsapp/home.page",
+                "icon": "icon-list-alt",
+                "order": 30,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+                "id": "reportingui.dataExports.adHoc",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+                "type": "link",
+                "label": "reportingui.adHocAnalysis.label",
+                "url": "reportingui/adHocManage.page",
+                "order": 9999,
+                "requiredPrivilege": "App: reportingui.adHocAnalysis",
+                "featureToggle": "reportingui_adHocAnalysis"
+            },
+            {
+              "id": "isanteplusreports.healthqual_report",
+              "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+              "type": "link",
+              "label": "isanteplusreports.healthqual.label",
+              "url": "isanteplusreports/healthQualReport.page",
+              "order": 3,
+              "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+                "id": "isanteplusreports.septJoursLibelle",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.septJoursLibelle",
+                "url": "reportingui/runReport.page?reportDefinition=1c52d6ee-7cc1-4bae-a303-ffa2bdd0a8e2",
+                "order": 5,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+             {
+                "id": "isanteplusreports.quatorzeJoursLibelle",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.quatorzeJoursLibelle",
+                "url": "reportingui/runReport.page?reportDefinition=d5ced5d1-bbc7-4679-9020-51e732b69dfd",
+                "order": 6,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+             {
+                "id": "isanteplusreports.patByAge",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+                "type": "link",
+                "label": "isanteplusreports.patByAge",
+                "url": "reportingui/runReport.page?reportDefinition=5c40612b-bd9b-4cb7-8c30-1ae89fcdf038",
+                "order": 7,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+             {
+                "id": "isanteplusreports.patientsCrachatWithoutTbDiagnostic",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.patientsCrachatWithoutTbDiagnostic",
+                "url": "reportingui/runReport.page?reportDefinition=54ecf434-5978-4826-b049-d965fe1f81ed",
+                "order": 8,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+             {
+                "id": "isanteplusreports.patientsWithTbDiagnosticWithoutTreatment",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.patientsWithTbDiagnosticWithoutTreatment",
+                "url": "reportingui/runReport.page?reportDefinition=7acca9bf-ee7c-49bd-9444-faf2e66aaeb9",
+                "order": 9,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+             {
+                "id": "isanteplusreports.patientsWithTbDiagnosticWithoutCrachat",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.patientsWithTbDiagnosticWithoutCrachat",
+                "url": "reportingui/runReport.page?reportDefinition=73173f96-69fc-4c74-b31c-c7ffb9a37d69",
+                "order": 10,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+             {
+                "id": "isanteplusreports.patientsWithCompletedTbTreatment",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.patientsWithCompletedTbTreatment",
+                "url": "reportingui/runReport.page?reportDefinition=5c4201e3-83c1-421a-8bc1-f23ecb67cf60",
+                "order": 11,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+             {
+                "id": "isanteplusreports.firstVisitAge",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+                "type": "link",
+                "label": "isanteplusreports.firstVisitAge",
+                "url": "reportingui/runReport.page?reportDefinition=27882c50-7a45-475b-97c1-b0618135e667",
+                "order": 12,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+             {
+                "id": "isanteplusreports.consultationByDay",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+                "type": "link",
+                "label": "isanteplusreports.consultationByDay",
+                "url": "reportingui/runReport.page?reportDefinition=d5ca9447-c2b2-4625-af65-93fc1ff58843",
+                "order": 13,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+             {
+                "id": "isanteplusreports.numberVisitByMonth",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+                "type": "link",
+                "label": "isanteplusreports.numberVisitByMonth",
+                "url": "reportingui/runReport.page?reportDefinition=68023435-7e82-4e95-af6b-c137476f0f02",
+                "order": 14,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+             {
+                "id": "isanteplusreports.numberPatientBySex",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+                "type": "link",
+                "label": "isanteplusreports.numberPatientBySex",
+                "url": "reportingui/runReport.page?reportDefinition=892661ed-f096-4580-a2de-abcf8a13658d",
+                "order": 15,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+             {
+                "id": "isanteplusreports.dispensingMedications",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+                "type": "link",
+                "label": "isanteplusreports.dispensingMedications",
+                "url": "reportingui/runReport.page?reportDefinition=bdd40a99-1727-43a3-b155-71b73bf681b9",
+                "order": 16,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+		        "id": "isanteplusreports.patientArvByPeriod",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+		        "type": "link",
+		        "label": "isanteplusreports.patientArvByPeriod",
+		        "url": "isanteplusreports/arvByPeriodReport.page",
+		        "order": 18,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    },
+		     {
+                "id": "isanteplusreports.drugsPrescriptionAmount",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+                "type": "link",
+                "label": "isanteplusreports.drugsPrescriptionAmount",
+                "url": "reportingui/runReport.page?reportDefinition=184c228b-ff83-41cb-97c3-6bfc7fe5c4c8",
+                "order": 24,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+             {
+                "id": "isanteplusreports.labPrescription",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+                "type": "link",
+                "label": "isanteplusreports.labPrescription",
+                "url": "reportingui/runReport.page?reportDefinition=84f3fc41-c932-411f-b43f-f51cfe4e44a7",
+                "order": 25,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+             {
+                "id": "isanteplusreports.labDone",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+                "type": "link",
+                "label": "isanteplusreports.labDone",
+                "url": "reportingui/runReport.page?reportDefinition=0a290fe4-863b-4137-bbd6-c79899baf694",
+                "order": 26,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+             {
+                "id": "isanteplusreports.patientStartedArv",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.patientStartedArv",
+                "url": "reportingui/runReport.page?reportDefinition=a34a5b4a-13d7-4909-a2ef-557db15411cc",
+                "order": 30,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+                "id": "isanteplusreports.patientArvExpectedDateInThirtyDays",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.patientArvExpectedDateInThirtyDays",
+                "url": "reportingui/runReport.page?reportDefinition=2bde1a37-dcbc-4e06-8090-72b6d5356abf",
+                "order": 31,
+                "requiredPrivilege": "App: reportingui.reports"
+            }, 
+            {
+                "id": "isanteplusreports.patientArvEnd",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.patientArvEnd",
+                "url": "reportingui/runReport.page?reportDefinition=fd4f74f0-4e3b-42a3-bec0-be1367a2e2ce",
+                "order": 32,
+                "requiredPrivilege": "App: reportingui.reports"
+            }, 
+            {
+		        "id": "isanteplusreports.institution_frequenting_by_user",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+		        "type": "link",
+		        "label": "isanteplusreports.institution_frequenting_by_user",
+		        "url": "reportingui/runReport.page?reportDefinition=6cd7ff44-4139-4289-8a1c-125cbb9b305a",
+		        "order": 33,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.institution_frequenting_by_user_and_date",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+		        "type": "link",
+		        "label": "isanteplusreports.institution_frequenting_by_user_and_date",
+		        "url": "reportingui/runReport.page?reportDefinition=ce6214e2-08e5-43bc-8b83-c934e712b28c",
+		        "order": 34,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    },
+            {
+		        "id": "isanteplusreports.monitoring.institution_frequenting",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+		        "type": "link",
+		        "label": "isanteplusreports.institution_frequenting",
+		        "url": "reportingui/runReport.page?reportDefinition=1ed1cfcf-38f6-460f-b7c0-7fa3ea0dfd2a",
+		        "order": 36,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    },
+            {
+		        "id": "isanteplusreports.monitoring.institution_frequenting_by_date",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+		        "type": "link",
+		        "label": "isanteplusreports.institution_frequenting_by_date",
+		        "url": "reportingui/runReport.page?reportDefinition=33c5cee6-8102-43c1-975e-c11b3ce26ea9",
+		        "order": 37,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+             {
+                "id": "isanteplusreports.alert",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.alert",
+                "url": "isanteplusreports/alertReport.page",
+                "order": 38,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+		     {
+		        "id": "isanteplusreports.patient_with_only_register_form",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.dataquality",
+		        "type": "link",
+		        "label": "isanteplusreports.patient_with_only_register_form",
+		        "url": "reportingui/runReport.page?reportDefinition=dfa9a7a6-629f-46db-9648-60a8ca9214be",
+		        "order": 39,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.hiv_patient_without_first_visit",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.dataquality",
+		        "type": "link",
+		        "label": "isanteplusreports.hiv_patient_without_first_visit",
+		        "url": "reportingui/runReport.page?reportDefinition=aea43fb1-3bed-4745-a316-4c55cfdd868e",
+		        "order": 40,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.hiv_patient_with_activity_after_discontinuation",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.dataquality",
+		        "type": "link",
+		        "label": "isanteplusreports.hiv_patient_with_activity_after_discontinuation",
+		        "url": "reportingui/runReport.page?reportDefinition=1d83343e-9467-42e7-b2dd-a69362802d62",
+		        "order": 41,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.form_recently_filled",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.dataquality",
+		        "type": "link",
+		        "label": "isanteplusreports.form_recently_filled",
+		        "url": "isanteplusreports/formRecentlyFilled.page",
+		        "order": 42,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.number_pregnancy_women_hiv_tested",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.ptme",
+		        "type": "link",
+		        "label": "isanteplusreports.number_pregnancy_women_hiv_tested",
+		      	"url": "reportingui/runReport.page?reportDefinition=7a55fec8-6189-4e0f-9742-a462e4dbc189",
+		        "order": 43,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.number_prenancy_women_vih_positive",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.ptme",
+		        "type": "link",
+		        "label": "isanteplusreports.number_prenancy_women_vih_positive",
+		      	"url": "reportingui/runReport.page?reportDefinition=f5c6a8db-73cb-4537-b2ce-833cf850fad4",
+		        "order": 44,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.community_arv_distribution",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+		        "type": "link",
+		        "label": "isanteplusreports.community_arv_distribution",
+		      	"url": "reportingui/runReport.page?reportDefinition=437469a1-7112-47a7-b48a-6cec7bf87260",
+		        "order": 45,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.pregnancy_women_on_haart",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.ptme",
+		        "type": "link",
+		        "label": "isanteplusreports.pregnancy_women_on_haart",
+		      	"url": "reportingui/runReport.page?reportDefinition=b3c29c8d-6918-4b16-90b7-aff3d1204860",
+		        "order": 46,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.number_hiv_pregnancy_women_gave_birth_at_hospital",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.ptme",
+		        "type": "link",
+		        "label": "isanteplusreports.number_hiv_pregnancy_women_gave_birth_at_hospital",
+		      	"url": "reportingui/runReport.page?reportDefinition=a366a646-382a-4eb1-b2a7-16282579c9df",
+		        "order": 51,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.exposed_infants_register_in_ptme_program",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.ptme",
+		        "type": "link",
+		        "label": "isanteplusreports.exposed_infants_register_in_ptme_program",
+		      	"url": "reportingui/runReport.page?reportDefinition=f786f658-c9a8-4a3b-bfc1-6232807ef8fe",
+		        "order": 52,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.number_infants_from_mother_on_prophylaxis",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.ptme",
+		        "type": "link",
+		        "label": "isanteplusreports.number_infants_from_mother_on_prophylaxis",
+		      	"url": "reportingui/runReport.page?reportDefinition=d0ba4eba-dc36-4adc-9c0e-f0eb244fd279",
+		        "order": 53,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.frequency_prenatal_visits_per_patient",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.antenatal",
+		        "type": "link",
+		        "label": "isanteplusreports.frequency_prenatal_visits_per_patient",
+		      	"url": "reportingui/runReport.page?reportDefinition=6d2de0f7-2396-4e17-9399-5a704b3ea7f9",
+		        "order": 54,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.number_exposed_infants_tested_by_pcr",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.ptme",
+		        "type": "link",
+		        "label": "isanteplusreports.number_exposed_infants_tested_by_pcr",
+		      	"url": "reportingui/runReport.page?reportDefinition=314972cc-0d5c-45c6-9445-54a942e96b43",
+		        "order": 55,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.number_exposed_infants_confirmed_hiv",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.ptme",
+		        "type": "link",
+		        "label": "isanteplusreports.number_exposed_infants_confirmed_hiv",
+		      	"url": "reportingui/runReport.page?reportDefinition=1c072b8f-2740-4cb4-aff7-6d0095df2437",
+		        "order": 56,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.number_women_seen_first_prenatal_visit_first_trimester",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.antenatal",
+		        "type": "link",
+		        "label": "isanteplusreports.number_women_seen_first_prenatal_visit_first_trimester",
+		      	"url": "reportingui/runReport.page?reportDefinition=99dd9482-6e97-49be-8e6e-123ba8f689cb",
+		        "order": 57,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    },  
+		     {
+		        "id": "isanteplusreports.hiv_transmission_risks_factor",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+		        "type": "link",
+		        "label": "isanteplusreports.hiv_transmission_risks_factor",
+		      	"url": "reportingui/runReport.page?reportDefinition=b66e2895-d766-4fad-b12f-19b979c82d06",
+		        "order": 59,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.number_visits_by_pregnant_women_to_the_clinic",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.antenatal",
+		        "type": "link",
+		        "label": "isanteplusreports.number_visits_by_pregnant_women_to_the_clinic",
+		      	"url": "reportingui/runReport.page?reportDefinition=6647de56-ada8-4a01-a5ed-3e8db17d3957",
+		        "order": 60,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.list_pregnancy_women_receiving_in_clinic",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.antenatal",
+		        "type": "link",
+		        "label": "isanteplusreports.list_pregnancy_women_receiving_in_clinic",
+		        "url": "reportingui/runReport.page?reportDefinition=a3d743f9-fc42-429e-bd71-e2b9e375cc61",
+		        "order": 61,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    },
+		    {
+		        "id": "isanteplusreports.list_of_lab_orders",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+		        "type": "link",
+		        "label": "isanteplusreports.list_of_lab_orders",
+		        "url": "reportingui/runReport.page?reportDefinition=f37fa532-2f50-4d84-a1f0-a7abb2c29417",
+		        "order": 62,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    },
+		    {
+		        "id": "isanteplusreports.list_of_lab_orders_results",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+		        "type": "link",
+		        "label": "isanteplusreports.list_of_lab_orders_results",
+		        "url": "reportingui/runReport.page?reportDefinition=62f8e200-38de-4faa-a0c9-d807f2c3a2db",
+		        "order": 63,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    },
+		     {
+		        "id": "isanteplusreports.list_patients_receiving_arv_in_community",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+		        "type": "link",
+		        "label": "isanteplusreports.list_patients_receiving_arv_in_community",
+		      	"url": "reportingui/runReport.page?reportDefinition=af628fc5-e83b-443e-aed2-c7ffc29bc4f2",
+		        "order": 64,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.list_patients_receiving_arv_in_hospital",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+		        "type": "link",
+		        "label": "isanteplusreports.list_patients_receiving_arv_in_hospital",
+		      	"url": "reportingui/runReport.page?reportDefinition=90ef295f-4d58-4b73-b477-f3798093a1f0",
+		        "order": 65,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.list_patients_beneficie_pcr",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+		        "type": "link",
+		        "label": "isanteplusreports.list_patients_beneficie_pcr",
+		      	"url": "reportingui/runReport.page?reportDefinition=8176506e-b027-4735-bcc8-ce39182dbc7e",
+		        "order": 80,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.number_patients_beneficie_pcr",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+		        "type": "link",
+		        "label": "isanteplusreports.number_patients_beneficie_pcr",
+		      	"url": "reportingui/runReport.page?reportDefinition=5a5543d5-98d3-480c-b193-2bbe4dcb1c9d",
+		        "order": 85,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.list_eligible_children_for_pcr",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+		        "type": "link",
+		        "label": "isanteplusreports.list_eligible_children_for_pcr",
+		      	"url": "reportingui/runReport.page?reportDefinition=164be26a-d7d8-4efd-9f86-2656d781b275",
+		        "order": 90,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.number_eligible_children_for_pcr",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+		        "type": "link",
+		        "label": "isanteplusreports.number_eligible_children_for_pcr",
+		      	"url": "reportingui/runReport.page?reportDefinition=cb18f36f-befa-4abb-b932-e99dcf7176bb",
+		        "order": 95,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.number_charge_virale_by_result_date",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+		        "type": "link",
+		        "label": "isanteplusreports.number_charge_virale_by_result_date",
+		      	"url": "reportingui/runReport.page?reportDefinition=09816079-aca6-4659-94b9-3ec619328b82",
+		        "order": 100,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.list_patients_charge_virale_moins_mille_by_result_date",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+		        "type": "link",
+		        "label": "isanteplusreports.list_patients_charge_virale_moins_mille_by_result_date",
+		      	"url": "reportingui/runReport.page?reportDefinition=4e0475de-1c07-4465-a042-ea25c7d699a4",
+		        "order": 102,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.list_patients_charge_virale_plus_mille_by_result_date",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+		        "type": "link",
+		        "label": "isanteplusreports.list_patients_charge_virale_plus_mille_by_result_date",
+		      	"url": "reportingui/runReport.page?reportDefinition=bce4c112-6313-401c-a298-38f1d9abc2aa",
+		        "order": 104,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.number_charge_virale_by_demand_date",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+		        "type": "link",
+		        "label": "isanteplusreports.number_charge_virale_by_demand_date",
+		      	"url": "reportingui/runReport.page?reportDefinition=d01f6bb5-28b2-48b6-88bd-0486cf9ff3e7",
+		        "order": 110,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.list_patients_charge_virale_moins_mille_by_demand_date",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+		        "type": "link",
+		        "label": "isanteplusreports.list_patients_charge_virale_moins_mille_by_demand_date",
+		      	"url": "reportingui/runReport.page?reportDefinition=dba66308-7358-41f5-8806-001efe60dd13",
+		        "order": 112,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.list_patients_charge_virale_plus_mille_by_demand_date",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+		        "type": "link",
+		        "label": "isanteplusreports.list_patients_charge_virale_plus_mille_by_demand_date",
+		      	"url": "reportingui/runReport.page?reportDefinition=2126a49e-3a7b-48b2-bb92-12292cbb02f8",
+		        "order": 114,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.list_patients_eligible_for_charge_virale",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+		        "type": "link",
+		        "label": "isanteplusreports.list_patients_eligible_for_charge_virale",
+		      	"url": "reportingui/runReport.page?reportDefinition=af612ab5-9e33-4911-a23d-dd4c7eeaef14",
+		        "order": 116,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.list_patients_eligible_for_charge_virale_controle",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+		        "type": "link",
+		        "label": "isanteplusreports.list_patients_eligible_for_charge_virale_controle",
+		      	"url": "reportingui/runReport.page?reportDefinition=dceb09ed-7f54-4ebb-be45-76ac69a67b59",
+		        "order": 120,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.patientWithoutPCOrST",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.dataquality",
+		        "type": "link",
+		        "label": "isanteplusreports.patientWithoutPCOrST",
+		        "url": "reportingui/runReport.page?reportDefinition=3f78a306-3755-4960-8bf2-15a7ae4cb262",
+		        "order": 125,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.patientsWithNoGender",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.dataquality",
+		        "type": "link",
+		        "label": "isanteplusreports.patientsWithNoGender",
+		        "url": "reportingui/runReport.page?reportDefinition=3099cda4-b906-42fc-af4c-0a1d51da53a3",
+		        "order": 130,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    },
+		    {
+		        "id": "isanteplusreports.patientsWithMultipleARTRegimens",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.dataquality",
+		        "type": "link",
+		        "label": "isanteplusreports.patientsWithMultipleARTRegimens",
+		        "url": "reportingui/runReport.page?reportDefinition=4910f32f-1dfc-4e8d-a431-269a8b215b93",
+		        "order": 135,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.possibleDuplicateRegistrations",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.dataquality",
+		        "type": "link",
+		        "label": "isanteplusreports.possibleDuplicateRegistrations",
+		        "url": "reportingui/runReport.page?reportDefinition=f344beaa-634f-4ce3-8a9c-dfd1788b5de2",
+		        "order": 140,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    },
+		    {
+		        "id": "isanteplusreports.womenEnrolledBecamePregnant",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.ptme",
+		        "type": "link",
+		        "label": "isanteplusreports.womenEnrolledBecamePregnant",
+		        "url": "reportingui/runReport.page?reportDefinition=c1c3838d-80bb-44c3-963d-2283078bf274",
+		        "order": 145,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.number_hiv_patient",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.dataexport",
+		        "type": "link",
+		        "label": "isanteplusreports.number_hiv_patient",
+		      	"url": "reportingui/runReport.page?reportDefinition=b6973c26-e4a2-46c6-9446-f993cad52efe",
+		        "order": 150,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.list_of_exposed_infants",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.ptme",
+		        "type": "link",
+		        "label": "isanteplusreports.list_of_exposed_infants",
+		      	"url": "reportingui/runReport.page?reportDefinition=3d6ee8cc-cfea-4ce7-b84b-3c6893ce6a2c",
+		        "order": 155,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.pregnancy_women_tested_for_syphilis",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.antenatal",
+		        "type": "link",
+		        "label": "isanteplusreports.pregnancy_women_tested_for_syphilis",
+		      	"url": "reportingui/runReport.page?reportDefinition=23f61edd-76b1-4e68-a24d-c3c16a91436d",
+		        "order": 47,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.pregnancy_women_diagnosed_with_syphilis",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.antenatal",
+		        "type": "link",
+		        "label": "isanteplusreports.pregnancy_women_diagnosed_with_syphilis",
+		      	"url": "reportingui/runReport.page?reportDefinition=613d0119-cb40-4fed-aa67-56f032a20cc9",
+		        "order": 48,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.number_prenatal_visit_by_site",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.antenatal",
+		        "type": "link",
+		        "label": "isanteplusreports.number_prenatal_visit_by_site",
+		      	"url": "reportingui/runReport.page?reportDefinition=b7f7ea96-3fe4-4a17-99b5-1ad2cdaadf50",
+		        "order": 49,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    }, 
+		     {
+		        "id": "isanteplusreports.number_pregnancy_women_had_first_consultation_prenatal",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.antenatal",
+		        "type": "link",
+		        "label": "isanteplusreports.number_pregnancy_women_had_first_consultation_prenatal",
+		      	"url": "reportingui/runReport.page?reportDefinition=60051dfe-85f3-45e1-9df2-a45bbed2918b",
+		        "order": 50,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    },
+            {
+                "id": "isanteplusreports.art_dispensation_follow_up",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.art_dispensation_follow_up",
+                "url": "reportingui/runReport.page?reportDefinition=ef282113-32bd-49d7-870f-0ef41443e8de",
+                "order": 160,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+
+            {
+                "id": "isanteplusreports.malaria_indicator_report",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.malaria_indicator_report",
+                "url": "reportingui/runReport.page?reportDefinition=8c5fb6a1-758d-4b95-9cdb-a25b57276ec5",
+                "order": 164,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+            
+		    {
+		        "id": "isanteplusreports.patientStatus",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.patientsstatus",
+		        "type": "link",
+		        "label": "isanteplusreports.patientStatus",
+		      	"url": "isanteplusreports/patientsStatus.page",
+		        "order": 165,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    },
+             {
+                "id": "isanteplusreports.next_visit_by_period",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.next_visit_by_period",
+                "url": "reportingui/runReport.page?reportDefinition=f3bef310-0e62-4b4f-88f1-8b7983ea51cb",
+                "order": 4,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+
+            {
+                "id": "isanteplusreports.obgyn_indicator_report",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.obgyn_indicator_report",
+                "url": "reportingui/runIndicatorReport.page?reportDefinition=0616e88a-011f-4433-9d98-1743448977af",
+                "order": 166,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+		        "id": "isanteplusreports.activity_after_discontinuation_by_period",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.dataquality",
+		        "type": "link",
+		        "label": "isanteplusreports.activity_after_discontinuation_by_period",
+		        "url": "reportingui/runReport.page?reportDefinition=7414a044-ace9-4140-88f2-5b79d869b5c9",
+		        "order": 180,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    },
+		    {
+              "id": "isanteplusreports.pnls_report",
+              "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+              "type": "link",
+              "label": "isanteplusreports.pnls.label",
+              "url": "isanteplusreports/pnlsReport.page",
+              "order": 200,
+              "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+                "id": "isanteplusreports.patient_diagnose_for_covid19",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.patient_diagnose_for_covid19",
+                "url": "reportingui/runReport.page?reportDefinition=c6381c6e-b9a4-49d3-84bd-210a0bc6b0dd",
+                "order": 201,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+                "id": "isanteplusreports.patient_vaccinated_covid19",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.patient_vaccinated_covid19",
+                "url": "reportingui/runReport.page?reportDefinition=de5c0d89-4d01-4f1a-99dd-20b3dd778bc",
+                "order": 202,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+              "id": "isanteplusreports.alertPrecoce_report",
+              "extensionPointId": "org.openmrs.module.isanteplusreports.reports.alertprecoce",
+              "type": "link",
+              "label": "isanteplusreports.alertprecoce.report.label",
+              "url": "isanteplusreports/alertPrecoceReport.page",
+              "order": 203,
+              "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+		        "id": "isanteplusreports.weeklymonitoringreport.indicator.label",
+		        "extensionPointId": "org.openmrs.module.isanteplusreports.reports.dashboard",
+		        "type": "link",
+		        "label": "isanteplusreports.weeklymonitoringreport.indicator.label",
+		        "url": "isanteplusreports/weeklyMonitoringReport.page",
+		        "order": 204,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    },
+            {
+              "id": "isanteplusreports.artdistribution.report.label",
+              "extensionPointId": "org.openmrs.module.isanteplusreports.reports.dashboard",
+              "type": "link",
+              "label": "isanteplusreports.artdistribution.report.label",
+              "url": "isanteplusreports/artDistributionReport.page",
+              "order": 205,
+              "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+                "id": "isanteplusreports.patient_confirm_covid19",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.patient_confirm_covid19",
+                "url": "reportingui/runReport.page?reportDefinition=358f6c1f-6751-4ed0-8567-95a3ac227f39",
+                "order": 206,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+                "id": "isanteplusreports.patient_suspected_covid19",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.patient_suspected_covid19",
+                "url": "reportingui/runReport.page?reportDefinition=27f98dae-6c6d-4424-87d2-bd41305253f4",
+                "order": 207,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+		        "id": "isanteplusreports.isanteplusreports.hiv_patients_without_hiv_test",
+		        "extensionPointId": "org.openmrs.module.reportingui.reports.dataquality",
+		        "type": "link",
+		        "label": "isanteplusreports.hiv_patients_without_hiv_test",
+		        "url": "reportingui/runReport.page?reportDefinition=3d931155-97ce-4c83-8652-37735bf48e45",
+		        "order": 208,
+		        "requiredPrivilege": "App: reportingui.reports"
+		    },
+            {
+              "id": "isanteplusreports.psychosocial.indicator.label",
+              "extensionPointId": "org.openmrs.module.isanteplusreports.reports.psychosocial",
+              "type": "link",
+              "label": "isanteplusreports.psychosocial.indicator.label",
+              "url": "isanteplusreports/psychoSocialIndicatorReport.page",
+              "order": 209,
+              "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+                "id": "isanteplusreports.reports.activePatientsWithViralLoadLastTwelveMonths",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.reports.activePatientsWithViralLoadLastTwelveMonths",
+                "url": "reportingui/runReport.page?reportDefinition=bb53535b-4d85-4315-8506-8b242e60cfd9",
+                "order": 210,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+                "id": "isanteplusreports.reports.activePatientsScreenedForTb",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.reports.activePatientsScreenedForTb",
+                "url": "reportingui/runReport.page?reportDefinition=8a6bf7f0-5a50-4221-83ad-61d29057864e",
+                "order": 211,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+                "id": "isanteplusreports.reports.patientWithIncompleteProphylaxisAgainstTb",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.reports.patientWithIncompleteProphylaxisAgainstTb",
+                "url": "reportingui/runReport.page?reportDefinition=f48cf8ec-feb2-4473-89ec-4ab19dc48738",
+                "order": 212,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+                "id": "isanteplusreports.reports.patientScreenedNegativeAgainstTbWithNoProphylaxis",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.reports.patientScreenedNegativeAgainstTbWithNoProphylaxis",
+                "url": "reportingui/runReport.page?reportDefinition=85d9ca70-81d7-4082-93c0-d9eeed450632",
+                "order": 213,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+                "id": "isanteplusreports.report.ddp",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.report.ddp",
+                "url": "isanteplusreports/ddpByPeriodReport.page",
+                "order": 214,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+                "id": "isanteplusreports.report.patient_with_finger_print",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.report.patient_with_finger_print",
+                "url": "reportingui/runReport.page?reportDefinition=2a06491b-9f73-40a6-bed6-8c39fade8d7a",
+                "order": 215,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+                "id": "isanteplusreports.fingerprint.indicator.label",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.fingerprint.indicator.label",
+                "url": "isanteplusreports/fingerPrintIndicatorReport.page",
+                "order": 216,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+                "id": "isanteplusreports.report.transitionedPatient",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.report.transitionedPatient",
+                "url": "isanteplusreports/transisionedPatientIndicatorReport.page",
+                "order": 217,
+                "requiredPrivilege": "App: reportingui.reports"
+            },
+            {
+                "id": "isanteplusreports.report.vitalStatistics",
+                "extensionPointId": "org.openmrs.module.reportingui.reports.overview",
+                "type": "link",
+                "label": "isanteplusreports.report.vitalStatistics",
+                "url": "isanteplusreports/vitalStatisticsIndicator.page",
+                "order": 218,
+                "requiredPrivilege": "App: reportingui.reports"
+            }
+            
+              
+
+        ],
+        "requiredPrivilege": "App: reportingui.reports"
+    }
+   ]

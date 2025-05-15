@@ -1,0 +1,16 @@
+target/
+*.iml
+.idea
+.settings
+.project
+.classpath
+.java-version
+
+api/target/
+omod/target/
+api/bin/pom.xml
+
+# Mac OSX
+.DS_Store
+
+.flattened-pom.xml

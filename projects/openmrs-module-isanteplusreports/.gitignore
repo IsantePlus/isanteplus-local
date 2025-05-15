@@ -1,0 +1,12 @@
+target/
+*.iml
+.idea
+.settings
+.project
+.classpath
+.java-version
+.factorypath
+
+api/target/
+omod/target/
+api/bin/pom.xml

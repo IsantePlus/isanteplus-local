@@ -1,0 +1,253 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.openmrs.maven.parents</groupId>
+        <artifactId>maven-parent-openmrs-module</artifactId>
+        <version>1.1.1</version>
+    </parent>
+
+    <groupId>org.openmrs.module</groupId>
+    <artifactId>labintegration</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+    <name>Lab Integration</name>
+    <description>Integration with lab systems such as OpenELIS.</description>
+
+    <url>https://wiki.openmrs.org/x/FQ4z</url>
+
+    <scm>
+        <connection>scm:git:git@github.com:openmrs/openmrs-module-labintegration.git</connection>
+        <developerConnection>scm:git:git@github.com:openmrs/openmrs-module-labintegration.git</developerConnection>
+        <url>https://github.com/openmrs/openmrs-module-labintegration/</url>
+    </scm>
+
+    <modules>
+        <module>api</module>
+        <module>omod</module>
+        <module>build-tools</module>
+    </modules>
+
+    <repositories>
+        <repository>
+            <id>openmrs-repo</id>
+            <name>OpenMRS Nexus Repository</name>
+            <url>https://mavenrepo.openmrs.org/nexus/content/repositories/public</url>
+        </repository>
+        <repository>
+            <id>central</id>
+            <name>Maven Repository Switchboard</name>
+            <layout>default</layout>
+            <url>https://repo1.maven.org/maven2</url>
+        </repository>
+        <repository>
+            <id>uwdigi-repo-central</id>
+            <name>DIGI Public Repository</name>
+            <url>https://packages.uwdigi.org/artifactory/public</url>
+        </repository>
+    </repositories>
+    <distributionManagement>
+        <repository>
+            <id>uwdigi-repo-central</id>
+            <name>libs-release</name>
+            <url>https://packages.uwdigi.org/artifactory/libs-release</url>
+        </repository>
+        <snapshotRepository>
+            <id>uwdigi-repo-snapshots</id>
+            <name>libs-snapshot</name>
+            <url>https://packages.uwdigi.org/artifactory/libs-snapshot</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>openmrs-repo</id>
+            <name>OpenMRS Nexus Repository</name>
+            <url>https://mavenrepo.openmrs.org/nexus/content/repositories/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <properties>
+        <revision>2.3.6-SNAPSHOT</revision>
+        <openmrsPlatformVersion>2.0.5</openmrsPlatformVersion>
+        <javaCompilerVersion>1.8</javaCompilerVersion>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.openmrs.web</groupId>
+                <artifactId>openmrs-web</artifactId>
+                <version>${openmrsPlatformVersion}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
+                <artifactId>maven-java-formatter-plugin</artifactId>
+                <inherited>false</inherited>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <target>${javaCompilerVersion}</target>
+                    <source>${javaCompilerVersion}</source>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>2.17</version>
+                <executions>
+                    <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <configuration>
+                            <configLocation>checkstyle.xml</configLocation>
+                            <encoding>UTF-8</encoding>
+                            <consoleOutput>true</consoleOutput>
+                            <logViolationsToConsole>true</logViolationsToConsole>
+                            <failOnViolation>true</failOnViolation>
+                            <failsOnError>true</failsOnError>
+                            <includeTestSourceDirectory>false</includeTestSourceDirectory>
+                        </configuration>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>3.0.5</version>
+                <configuration>
+                    <effort>Low</effort>
+                    <threshold>Low</threshold>
+                    <xmlOutput>true</xmlOutput>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>-Duser.timezone=PST</argLine>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.2.7</version>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+          </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <!-- Github Packages Integration -->
+            <id>github-packages</id>
+            <distributionManagement>
+                <!-- Deploy to Github Packages -->
+                <repository>
+                    <id>github-packages</id>
+                    <name>Github iSantePlus Packages</name>
+                    <url>https://maven.pkg.github.com/isanteplus/isanteplus-packages</url>
+                    <uniqueVersion>false</uniqueVersion>
+                </repository>
+                <snapshotRepository>
+                    <id>github-packages</id>
+                    <name>Github iSantePlus Packages</name>
+                    <url>https://maven.pkg.github.com/isanteplus/isanteplus-packages</url>
+                    <uniqueVersion>true</uniqueVersion>
+                </snapshotRepository>
+            </distributionManagement>
+            <repositories>
+                <!-- Use the Github Packages Repo first when looking up dependencies -->
+                <repository>
+                    <id>github-packages</id>
+                    <name>Github iSantePlus Packages</name>
+                    <url>https://maven.pkg.github.com/isanteplus/isanteplus-packages</url>
+                </repository>
+            </repositories>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>flatten-maven-plugin</artifactId>
+                        <version>1.1.0</version>
+                        <configuration>
+                            <updatePomFile>true</updatePomFile>
+                            <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>flatten</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>flatten</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>flatten.clean</id>
+                                <phase>clean</phase>
+                                <goals>
+                                    <goal>clean</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- Disable possible test jar generation -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>none</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-pmd-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>validate</id>
+                                <phase>none</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

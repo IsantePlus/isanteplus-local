@@ -1,0 +1,18 @@
+[
+    {
+        "id": "isanteplusreports.derl.surveillance.report.immediateIndicator",
+        "description": "isanteplusreports.derl.surveillance.report",
+        "order": 10,
+        "extensions": [
+            {
+                "id": "isanteplusreports.derl.surveillance.report",
+                "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+                "type": "link",
+                "order": 10,
+                "label": "isanteplusreports.derl.surveillance.report",
+                "url": "isanteplusreports/derlSurveillanceReport.page",
+                "icon": "icon-dashboard"
+            }
+        ]
+    }
+]
