@@ -139,3 +139,5 @@ isante-backup
 dist
 
 .tmp
+
+.m2

@@ -1,0 +1,30 @@
+[
+    {
+        "id": "isanteplusreports.patientSummary",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "${project.parent.artifactId}.patientSummary",
+        "url": "${project.parent.artifactId}/patientSummary.page?patientId={{patient.uuid}}",
+        "icon": "icon-beaker",
+        "order": 50
+    },
+    {
+        "id": "isanteplusreports.patientImmunization",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "${project.parent.artifactId}.patientImmunization",
+        "url": "${project.parent.artifactId}/patientImmunizationDoses.page?patientId={{patient.uuid}}",
+        "icon": "icon-beaker",
+        "order": 10
+    }, 
+    {
+        "id": "isanteplusreports.psychoSocialSummary",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "${project.parent.artifactId}.psychoSocialSummary",
+        "url": "${project.parent.artifactId}/psychoSocialSummary.page?patientId={{patient.uuid}}",
+        "icon": "icon-beaker",
+        "order": 13
+    }
+    
+]

@@ -1,0 +1,20 @@
+*.class
+.settings
+.project
+.classpath
+target
+*.iml
+.idea
+
+# Package Files #
+*.jar
+*.war
+*.ear
+/target/*
+
+id_file
+
+# Mac OSX
+.DS_Store
+
+.flattened-pom.xml

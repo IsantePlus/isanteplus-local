@@ -1,21 +1,6 @@
 #!/bin/bash
 set -e
 
-# This script runs during the MySQL initialization phase, thanks to docker-entrypoint.sh.
-# It uses the following ENV variables:
-#   - OPENMRS_DB_COUNT 
-#   - INITIAL_SQL_FILE
-#   - MYSQL_ROOT_PASSWORD
-#   - OMRS_CONFIG_CONNECTION_USERNAME_1
-#   - OMRS_CONFIG_CONNECTION_PASSWORD_1
-
-# For each database "openmrsN":
-# 1. CREATE DATABASE openmrsN
-# 2. CREATE USER 'openmrsN'@'%' IDENTIFIED BY 'dev_password_only'
-# 3. GRANT ALL PRIVILEGES ON openmrsN.* TO 'openmrsN'@'%'
-# 4. Load INITIAL_SQL_FILE into openmrsN
-# 5. FLUSH PRIVILEGES
-
 if [ -z "$OPENMRS_DB_COUNT" ]; then
   # set default
   OPENMRS_DB_COUNT=1
@@ -32,6 +17,7 @@ if [ -z "$MYSQL_ROOT_PASSWORD" ]; then
   exit 1
 fi
 
+echo "OPENMRS_DB_COUNT: $OPENMRS_DB_COUNT"
 for i in $(seq 1 "$OPENMRS_DB_COUNT"); do
 
 
@@ -41,17 +27,30 @@ for i in $(seq 1 "$OPENMRS_DB_COUNT"); do
     db="openmrs$i"
   fi
   
+  echo "username: $OMRS_CONFIG_CONNECTION_USERNAME_1"
+
   # Check if user variable is set
   if [ -z "$OMRS_CONFIG_CONNECTION_USERNAME_1" ]; then
     user="$OMRS_CONFIG_CONNECTION_USERNAME_1"
   else
-    user="$db"
+    # raise an error if the user variable is not set
+    if [ -z "$OMRS_CONFIG_CONNECTION_USERNAME_$i" ]; then
+      echo "OMRS_CONFIG_CONNECTION_USERNAME_$i is not set. Please provide a username for the database."
+    fi
+    user="openmrs"
   fi
+
+  echo "password: $OMRS_CONFIG_CONNECTION_PASSWORD_1"
 
   if [ -z "$OMRS_CONFIG_CONNECTION_PASSWORD_1" ]; then
     password="$OMRS_CONFIG_CONNECTION_PASSWORD_1"
   else
-    password="dev_password_only"
+    # raise an error if the password variable is not set
+
+    if [ -z "$OMRS_CONFIG_CONNECTION_PASSWORD_$i" ]; then
+      echo "OMRS_CONFIG_CONNECTION_PASSWORD_$i is not set. Please provide a password for the database."
+    fi
+    password="change_for_prod!"
   fi
 
   echo "Creating database: $db"

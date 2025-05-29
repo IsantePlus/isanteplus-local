@@ -1,0 +1,80 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.openmrs.module</groupId>
+        <artifactId>labintegration</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>labintegration-omod</artifactId>
+    <packaging>jar</packaging>
+    <name>Lab Integration OMOD</name>
+    <description>Omod submodule for Lab Integration</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.openmrs.module</groupId>
+            <artifactId>labintegration-api</artifactId>
+            <version>${parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.web</groupId>
+            <artifactId>openmrs-web</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.web</groupId>
+            <artifactId>openmrs-web</artifactId>
+            <scope>provided</scope>
+            <classifier>tests</classifier>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.parent.artifactId}-${project.parent.version}</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.openmrs.maven.plugins</groupId>
+                <artifactId>maven-openmrs-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+    <profiles>
+        <profile>
+            <id>github-packages</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <!-- Deploy OpenMRS omod file -->
+                                <id>deploy-file</id>
+                                <phase>deploy</phase>
+                                <goals>
+                                    <goal>deploy-file</goal>
+                                </goals>
+                                <configuration>
+                                    <url>https://maven.pkg.github.com/isanteplus/isanteplus-packages</url>
+                                    <file>target/${project.parent.artifactId}-${project.version}.omod</file>
+                                    <repositoryId>github-packages</repositoryId>
+                                    <packaging>omod</packaging>
+                                    <generatePom>false</generatePom>
+                                    <artifactId>${project.parent.artifactId}</artifactId>
+                                    <version>${project.version}</version>
+                                    <groupId>${groupId}</groupId>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

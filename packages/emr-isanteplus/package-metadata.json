@@ -13,7 +13,7 @@
     "OMRS_CONFIG_HAS_CURRENT_OPENMRS_DATABASE":"true",
     "OMRS_JAVA_SERVER_OPTS":"-Dfile.encoding=UTF-8 -server -Djava.security.egd=file:/dev/./urandom -Djava.awt.headless=true -Djava.awt.headlesslib=true",
     "OMRS_CONFIG_CONNECTION_USERNAME_1":"openmrs",
-    "OMRS_CONFIG_CONNECTION_PASSWORD_1":"dev_password_only",
+    "OMRS_CONFIG_CONNECTION_PASSWORD_1":"change_for_prod!",
     "OMRS_CONFIG_CONNECTION_URL_1":"jdbc:mysql://mysql:3306/openmrs?autoReconnect=true",
     "OMRS_DEV_DEBUG_PORT":"1044",
     "OMRS_JAVA_MEMORY_OPTS":"-Xmx2048m -Xms512m -XX:NewSize=256m",

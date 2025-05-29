@@ -1,0 +1,120 @@
+[
+    {
+        "id": "isanteplus.patientDashboard.secondColumnFragments.lastViralLoadTest",
+        "extensionPointId": "patientDashboard.secondColumnFragments",
+        "extensionParams": {
+            "provider": "${project.parent.artifactId}",
+            "fragment": "lastViralLoadTest"
+        }
+    },
+    {
+        "id": "isanteplus.patientDashboard.secondColumnFragments.weightGraph",
+        "extensionPointId": "patientDashboard.secondColumnFragments",
+        "extensionParams": {
+            "provider": "${project.parent.artifactId}",
+            "fragment": "weightGraph"
+        }
+    },
+    {
+        "id": "isanteplus.growthCharts",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "${project.parent.artifactId}.growthCharts",
+        "url": "${project.parent.artifactId}/growthCharts.page?patientId={{patient.uuid}}",
+        "icon": "icon-bar-chart",
+        "order": 4
+    },
+    {
+        "id": "isanteplus.formHistory",
+        "extensionPointId": "patientDashboard.tabs",
+        "type": "link",
+        "label": "${project.parent.artifactId}.forms",
+        "extensionParams": {
+            "provider": "${project.parent.artifactId}",
+            "fragment": "formsHistory"
+        }
+    },
+    {
+        "id": "isanteplus.formsHistory",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "${project.parent.artifactId}.forms",
+        "url": "${project.parent.artifactId}/patientFormsHistory.page?patientId={{patient.uuid}}&all=1",
+        "icon": "icon-list-alt",
+        "order": 5
+    },
+    {
+        "id": "isanteplus.labHistory",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "${project.parent.artifactId}.labHistory",
+        "url": "${project.parent.artifactId}/labHistory.page?patientId={{patient.uuid}}",
+        "icon": "icon-beaker",
+        "order": 6
+    },
+    {
+        "id": "isanteplus.patientDashboard.firstColumnFragments.mostRecentVitals",
+        "extensionPointId": "patientDashboard.firstColumnFragments",
+        "icon": "icon-vitals",
+        "extensionParams": {
+            "provider": "${project.parent.artifactId}",
+            "fragment": "isantePlusMostRecentVitals"
+        }
+    },
+    {
+        "id": "isanteplus.patientDashboard.firstColumnFragments.isantePlusForms",
+        "extensionPointId": "patientDashboard.firstColumnFragments",
+        "icon": "icon-list-alt",
+        "extensionParams": {
+            "provider": "${project.parent.artifactId}",
+            "fragment": "isantePlusForms"
+        }
+    },
+    {
+        "id": "isanteplus.drugsHistory",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "${project.parent.artifactId}.drugsHistory",
+        "url": "${project.parent.artifactId}/drugsHistory.page?patientId={{patient.uuid}}",
+        "icon": "icon-bar-chart",
+        "order": 7
+    },
+     {
+        "id": "isanteplus.patientDashboard.secondColumnFragments.bmiGraph",
+        "extensionPointId": "patientDashboard.secondColumnFragments",
+        "extensionParams": {
+            "provider": "${project.parent.artifactId}",
+            "fragment": "bmiGraph"
+        },
+         "order": 10,
+         "icon": "icon-list-alt"
+    },
+     {
+        "id": "isanteplus.patientDashboard.secondColumnFragments.viralLoadGraph",
+        "extensionPointId": "patientDashboard.secondColumnFragments",
+        "extensionParams": {
+            "provider": "${project.parent.artifactId}",
+            "fragment": "viralLoadGraph"
+        },
+         "order": 2,
+         "icon": "icon-list-alt"
+    },
+    {
+        "id": "isanteplus.viralLoadHistory",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "${project.parent.artifactId}.viralLoadHistory",
+        "url": "${project.parent.artifactId}/viralLoadHistory.page?patientId={{patient.uuid}}",
+        "icon": "icon-beaker",
+        "order": 50
+    },
+    {
+        "id": "isanteplus.diagnosis.label",
+        "extensionPointId": "patientDashboard.overallActions",
+        "type": "link",
+        "label": "${project.parent.artifactId}.diagnosis.label",
+        "url": "${project.parent.artifactId}/getAllDiagnosis.page?patientId={{patient.uuid}}",
+        "icon": "icon-beaker",
+        "order": 60
+    }
+]

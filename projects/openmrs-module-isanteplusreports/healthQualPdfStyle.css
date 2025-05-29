@@ -1,0 +1,65 @@
+@page {
+    size: landscape;
+}
+html, body {
+    height: 210mm;
+    width: 270mm;
+}
+
+th, td {
+    padding: 2pt;
+    border-color: black;
+    border-style: solid;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    font-size: 9pt;
+}
+
+th:last-child, td:last-child {
+    border-right-width: 1px;
+}
+
+tr:last-child th, tr:last-child td {
+    border-bottom-width: 1px;
+}
+
+.indicatorLabel {
+    text-align: center;
+    color: blue;
+}
+
+.label {
+    text-align: center;
+}
+.total {
+    color: blue;
+}
+
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2 {
+    margin: 5pt;
+}
+
+h3, h5 {
+    font-weight: normal;
+    margin: 1pt;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    empty-cells: hide;
+    margin: 41pt 0;
+    margin-right: 1.1in; /* setting proper right page margin */
+    page-break-inside: avoid;
+}
+
+tr {
+    page-break-inside: avoid;
+}

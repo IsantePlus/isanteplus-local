@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE module PUBLIC "OpenMRS Config" "https://resources.openmrs.org/doctype/config-1.6.dtd">
+<module configVersion="1.6">
+
+	<!-- Base Module Properties -->
+	<id>${project.parent.artifactId}</id>
+	<name>${project.parent.name}</name>
+	<version>${project.parent.version}</version>
+	<package>org.openmrs.module.labintegration</package>
+	<author>Itech</author>
+	<description>
+			${project.parent.description}
+	</description>
+
+	<activator>org.openmrs.module.labintegration.LabIntegrationActivator</activator>
+
+	<!-- <updateURL>https://modules.openmrs.org/modules/download/@MODULE_ID@/update.rdf</updateURL> -->
+	<!-- /Base Module Properties -->
+
+	<require_version>2.0.5</require_version>
+
+	<!-- Extensions -->
+	<extension>
+		<point>org.openmrs.admin.list</point>
+	</extension>
+
+	<aware_of_modules>
+		<aware_of_module>org.openmrs.module.legacyui</aware_of_module>
+	</aware_of_modules>
+
+	<!-- AOP
+	<advice>
+		<point>org.openmrs.api.FormService</point>
+		<class>@MODULE_PACKAGE@.advice.DuplicateFormAdvisor</class>
+	</advice>
+	 /AOP -->
+
+
+	<!-- Required Privileges
+	<privilege>
+		<name>Form Entry</name>
+		<description>Allows user to access Form Entry pages/functions</description>
+	</privilege>
+	 /Required Privileges -->
+
+
+	<!-- Required Global Properties -->
+	<globalProperty>
+		<property>@MODULE_ID@.openElis.receivingApplication</property>
+		<defaultValue>OpenELIS</defaultValue>
+		<description>
+			The Namespace ID of the receiving application in the HL7v2 message being sent to OpenELIS.
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>@MODULE_ID@.openElis.sendingApplication</property>
+		<defaultValue>iSantePlus</defaultValue>
+		<description>
+			The Namespace ID of the sending application in the HL7v2 message being sent to OpenELIS.
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>@MODULE_ID@.production</property>
+		<defaultValue>false</defaultValue>
+		<description>
+			Whether this module is deployed to production - true or false. Translates to the processing ID flag
+			sent in HL7 messages.
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>@MODULE_ID@.hl7.motherNameAttrTypeUuid</property>
+		<defaultValue>First Name of Mother</defaultValue>
+		<description>
+				The name of the attribute type used to represent the mother name.
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>@MODULE_ID@.hl7.phoneNumAttrTypeUuid</property>
+		<defaultValue>Telephone Number</defaultValue>
+		<description>
+			The name of the attribute type used to represent the patient phone number.
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>@MODULE_ID@.hl7.regForm.typeUuid</property>
+		<defaultValue>873f968a-73a8-4f9c-ac78-9f4778b751b6</defaultValue>
+		<description>
+			The UUID of the registration form.
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>@MODULE_ID@.hl7.regForm.religion</property>
+		<defaultValue>CIEL:162929</defaultValue>
+		<description>
+			The designation of the religion concept, in the form of SOURCE:CODE. Will be
+			used to retrieve the correct obs from the registration form.
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>@MODULE_ID@.hl7.regForm.civilStatus</property>
+		<defaultValue>CIEL:1054</defaultValue>
+		<description>
+			The designation of the civil status concept, in the form of SOURCE:CODE. Will be
+			used to retrieve the correct obs from the registration form.
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>@MODULE_ID@.hl7.regForm.birthPlaceGroup</property>
+		<defaultValue>PIH:birthplace address construct</defaultValue>
+		<description>
+			The designation of the concept grouping birth address concepts, in the form of
+			SOURCE:CODE. Will be used to retrieve the correct obs from the registration form.
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>@MODULE_ID@.hl7.regForm.birthPlaceCity</property>
+		<defaultValue>PIH:Country</defaultValue>
+		<description>
+			The designation of the birth city, in the form of SOURCE:CODE. Will be used to
+			retrieve the correct obs from the birth obs group.
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>@MODULE_ID@.openElis.url</property>
+		<description>
+			The URL to the OpenELIS endpoint that accepts HL7 message posts.
+		</description>`
+	</globalProperty>
+	<globalProperty>
+		<property>@MODULE_ID@.openElis.inboundHost</property>
+		<description>
+			The host of OpenELIS used that has to match when receiving inbound messages. If not set,
+			the value will be retrieved from the OpenELIS url. Use this if the host from the outbound url
+			does not match the IP in OpenELIS inbound messages.
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>@MODULE_ID@.orderEncounterTypeUuid</property>
+		<defaultValue>f037e97b-471e-4898-a07c-b8e169e0ddc4</defaultValue>
+		<description>
+			The UUID of EncounterType that specifies encounters with lab orders.
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>@MODULE_ID@.openElis.pidTypeUuid</property>
+		<defaultValue>05a29f94-c0ed-11e2-94be-8c13b969e334</defaultValue>
+		<description>
+			UUID of the Patient Identifier Type for the OpenELIS integration.
+		</description>
+	</globalProperty>
+
+	<globalProperty>
+		<property>@MODULE_ID@.scc.pidTypeUuid</property>
+		<description>
+			UUID of the Patient Identifier Type for the SCC.
+		</description>
+	</globalProperty>
+
+	<globalProperty>
+		<property>@MODULE_ID@.hl7.dateFormat</property>
+		<description>
+			Default date format for messages
+		</description>
+		<defaultValue>yyyyMMddHHmmss</defaultValue>
+	</globalProperty>
+	<!-- Required Global Properties -->
+
+	<!--
+	<dwr>
+		<allow>
+			<create creator="new" javascript="DWRFormEntryService">
+				<param name="class" value="org.openmrs.module.@MODULE_ID@.web.DWRFormEntryService"/>
+				<include method="enterForm"/>
+			</create>
+		</allow>
+
+		<signatures>
+			<![CDATA[
+			import @MODULE_PACKAGE@.web.DWRFormEntryService;
+			DWRFormEntryService.enterForm(Integer patientId, Integer formId, boolean useEncounter, List<String> fields);
+			]]>
+		</signatures>
+	</dwr>
+	-->
+
+	<!-- Servlets -->
+	<!-- Accessed through the url /pageContext()/moduleServlet/<moduleId>/<servlet-name> -->
+	<servlet>
+		<servlet-name>result</servlet-name>
+		<servlet-class>@MODULE_PACKAGE@.web.ResultServlet</servlet-class>
+	</servlet>
+
+	<!-- /Servlets -->
+
+
+	<!-- Internationalization -->
+	<!-- All message codes should start with @MODULE_ID@.* -->
+	<messages>
+		<lang>en</lang>
+		<file>messages.properties</file>
+	</messages>
+	<messages>
+		<lang>fr</lang>
+		<file>messages_fr.properties</file>
+	</messages>
+	<messages>
+		<lang>es</lang>
+		<file>messages_es.properties</file>
+	</messages>
+	<!-- /Internationalization -->
+
+</module>
+

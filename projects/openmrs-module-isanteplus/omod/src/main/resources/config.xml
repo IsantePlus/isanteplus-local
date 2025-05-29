@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module configVersion="1.2">
+
+	<!-- Module Properties -->
+	<id>${project.parent.artifactId}</id>
+	<name>${project.parent.name}</name>
+	<version>${project.parent.version}</version>
+	<package>${project.parent.groupId}.${project.parent.artifactId}</package>
+	<author>k-joseph</author>
+	<description>
+		${project.parent.description}
+	</description>
+	<updateURL>https://modules.openmrs.org/modules/download/${project.parent.artifactId}/update.rdf</updateURL>
+	<require_version>${openMRSVersion}</require_version>
+	<!-- / Module Properties -->
+
+
+	<!-- Required Modules -->
+	<require_modules>
+		<require_module version="${uiframeworkVersion}">org.openmrs.module.uiframework</require_module>
+		<require_module version="${emrapiVersion}">org.openmrs.module.emrapi</require_module>
+		<require_module version="${coreappsVersion}">org.openmrs.module.coreapps</require_module>
+		<require_module version="${registrationAppVersion}">org.openmrs.module.registrationapp</require_module>
+		<require_module version="${appframeworkVersion}">org.openmrs.module.appframework</require_module>
+		<require_module>org.openmrs.module.htmlformentry</require_module>
+		<require_module>org.openmrs.module.htmlformentryui</require_module>
+		<require_module version="${metadatadeployVersion}">org.openmrs.module.metadatadeploy</require_module>
+		<require_module version="${metadatamappingVersion}">org.openmrs.module.metadatamapping</require_module>
+		<require_module version="${metadatasharingVersion}">org.openmrs.module.metadatasharing</require_module>
+		<require_module version="${haiticoreVersion}">org.openmrs.module.haiticore</require_module>
+		<require_module version="${xds-senderVersion}">org.openmrs.module.xdssender</require_module>
+		 <require_module version="${appuiVersion}">
+            org.openmrs.module.appui
+        </require_module>
+
+        <require_module version="${idgenVersion}">
+            org.openmrs.module.idgen
+        </require_module>
+        <require_module version="${allergyuiVersion}">
+            org.openmrs.module.allergyui
+        </require_module>
+	</require_modules>
+	<!-- / Required Modules -->
+
+	<!-- Module Activator -->
+	<activator>${project.parent.groupId}.${project.parent.artifactId}.ISantePlusActivator</activator>
+
+	<!-- AOP Support to save form history at every encounter persistence -->
+	<advice>
+		<point>org.openmrs.api.EncounterService</point>
+		<class>org.openmrs.module.isanteplus.aop.SaveFormHistoryAfterEncounterSaveAdvice</class>
+	</advice>
+
+	<!-- Maps hibernate file's, if present -->
+	<mappingFiles>
+		IsantePlus.hbm.xml
+	</mappingFiles>
+	<packagesWithMappedClasses>org.openmrs.module.isanteplus.mapped</packagesWithMappedClasses>
+
+	<!-- Internationalization -->
+	<!-- All message codes should start with ${project.parent.artifactId}. -->
+	<messages>
+		<lang>en</lang>
+		<file>messages.properties</file>
+	</messages>
+	<messages>
+		<lang>fr</lang>
+		<file>messages_fr.properties</file>
+	</messages>
+	<messages>
+		<lang>es</lang>
+		<file>messages_es.properties</file>
+	</messages>
+	<!-- /Internationalization -->
+	<globalProperty>
+		<property>isanteplus.viralLoadConceptId</property>
+		<defaultValue>856</defaultValue>
+		<description>HIV VIRAL LOAD concept id</description>
+	</globalProperty>
+	<globalProperty>
+		<property>isanteplus.headCircumferenceConceptId</property>
+		<defaultValue>5314</defaultValue>
+		<description>Head Circumference Concept Id</description>
+	</globalProperty>
+	<globalProperty>
+		<property>isanteplus.formNeedsReviewConceptId</property>
+		<defaultValue>163341</defaultValue>
+		<description>Form needs review concept id</description>
+	</globalProperty>
+	<globalProperty>
+		<property>isanteplus.formStatusConceptId</property>
+		<defaultValue>163340</defaultValue>
+		<description>Form status concept id</description>
+	</globalProperty>
+	<globalProperty>
+		<property>isanteplus.yesConceptId</property>
+		<defaultValue>1065</defaultValue>
+		<description>Yes Concept id</description>
+	</globalProperty>
+	<globalProperty>
+		<property>isanteplus.noConceptId</property>
+		<defaultValue>1066</defaultValue>
+		<description>No Concept id</description>
+	</globalProperty>
+	<globalProperty>
+		<property>isanteplus.incompleteConceptId</property>
+		<defaultValue>163339</defaultValue>
+		<description>Incomplete Concept id</description>
+	</globalProperty>
+	<globalProperty>
+		<property>isanteplus.completedConceptId</property>
+		<defaultValue>1267</defaultValue>
+		<description>COMPLETED Concept id</description>
+	</globalProperty>
+	<globalProperty>
+		<property>isanteplus.formIdsToExcludeFromHistory</property>
+		<defaultValue></defaultValue>
+		<description>Forms IDs to exclude from form History</description>
+	</globalProperty>
+	<globalProperty>
+		<property>isanteplus.temperatureConceptId</property>
+		<defaultValue>5088</defaultValue>
+		<description>Temperature concept id</description>
+	</globalProperty>
+	<globalProperty>
+		<property>isanteplus.pulseConceptId</property>
+		<defaultValue>5087</defaultValue>
+		<description>Pulse concept id</description>
+	</globalProperty>
+	<globalProperty>
+		<property>isanteplus.respiratoryRateConceptId</property>
+		<defaultValue>5242</defaultValue>
+		<description>Respiratory rate concept id</description>
+	</globalProperty>
+	<globalProperty>
+		<property>isanteplus.diastolicBloodPressureConceptId</property>
+		<defaultValue>5086</defaultValue>
+		<description>DiastolicBlood Pressure rate concept id</description>
+	</globalProperty>
+	<globalProperty>
+		<property>isanteplus.bloodOxygenSaturationConceptId</property>
+		<defaultValue>5092</defaultValue>
+		<description>Blood Oxygen Saturation concept id</description>
+	</globalProperty>
+	<globalProperty>
+		<property>isanteplus.systolicBloodPressureConceptId</property>
+		<defaultValue>5085</defaultValue>
+		<description>Systolic Blood Pressure rate concept id</description>
+	</globalProperty>
+	<globalProperty>
+		<property>isanteplus.midUpperArmCircumferenceConceptId</property>
+		<defaultValue>1343</defaultValue>
+		<description>Mid Upper Arm Circumference concept id</description>
+	</globalProperty>
+	<globalProperty>
+		<property>isanteplus.adultStartingAge</property>
+		<defaultValue>14</defaultValue>
+		<description>Adult starting age in years, OpenMRS uses 13, Haiti uses
+			14</description>
+	</globalProperty>
+	<globalProperty>
+		<property>isanteplus.enabledIsantePlusUI</property>
+		<defaultValue>true</defaultValue>
+		<description>Set to false to disable iSantePlus custom user interface</description>
+	</globalProperty>
+	<globalProperty>
+		<property>isanteplus.metadataLastUpdatedDate</property>
+		<defaultValue></defaultValue>
+		<description>This is the last date that the iSantePlus metadata was
+			loaded. This date is evaluated each time the module is started.
+			Change it to load the metadata again.</description>
+	</globalProperty>
+</module>
