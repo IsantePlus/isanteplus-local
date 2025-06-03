@@ -60,4 +60,6 @@ ADD ./Dockerfile /openmrs/docker
 
 EXPOSE 8080
 
-ENTRYPOINT ls /custom_modules && /usr/local/tomcat/startup.sh
+COPY ./entrypoint-wrapper.sh /entrypoint-wrapper.sh
+
+ENTRYPOINT ls /custom_modules && /entrypoint-wrapper.sh

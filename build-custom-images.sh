@@ -14,17 +14,6 @@ if [ ! -d "/var/lib/openmrs-volume/openmrs-data" ]; then
   chmod +w /var/lib/openmrs-volume/openmrs-data
 fi
 
-if [ ! -d "/var/lib/openmrs-volume/openmrs-data2" ]; then
-  mkdir -p /var/lib/openmrs-volume/openmrs-data2
-  chmod +w /var/lib/openmrs-volume/openmrs-data2
-fi
-
-if [ ! -d "/var/lib/openmrs-volume/openmrs-data3" ]; then
-  mkdir -p /var/lib/openmrs-volume/openmrs-data3
-  chmod +w /var/lib/openmrs-volume/openmrs-data3
-fi
-
-
 if [ ! -d "/var/lib/certs/letscencrypt" ]; then
   mkdir -p /var/lib/certs/letscencrypt
   chmod +w /var/lib/certs/letscencrypt
@@ -51,6 +40,11 @@ docker build -t isanteplus-mysql:2.8.4 ./projects/isanteplus-db -f ./projects/is
 # iSantePlus Application
 ## 
 
+## Modules
+
+# Lab Integration Module
+
+
 # Load Env vars from json file environmentVariables field
 filepath="./packages/emr-isanteplus/package-metadata.json"
 envs=$(jq -r '.environmentVariables | to_entries | .[] | "\(.key)=\(.value)"' $filepath)
@@ -61,8 +55,8 @@ while IFS= read -r line; do
 done <<< "$envs"
 
 docker build -t itechuw/docker-isanteplus-server:local ./projects/emr-isanteplus -f ./projects/emr-isanteplus/Dockerfile
-docker build -t itechuw/docker-isanteplus-server:legacy ./projects/emr-isanteplus -f ./projects/emr-isanteplus/legacy.Dockerfile
-docker build -t itechuw/docker-isanteplus-server:2.8.4 ./projects/emr-isanteplus -f ./projects/emr-isanteplus/2_8_4.Dockerfile
+# docker build -t itechuw/docker-isanteplus-server:legacy ./projects/emr-isanteplus -f ./projects/emr-isanteplus/legacy.Dockerfile
+# docker build -t itechuw/docker-isanteplus-server:2.8.4 ./projects/emr-isanteplus -f ./projects/emr-isanteplus/2_8_4.Dockerfile
 
 ##
 # Cert Maintenance

@@ -4,15 +4,15 @@ services:
   openhim-core:
     image: ${OPENHIM_CORE_IMAGE}
     networks:
-      kafka:
-      hapi-fhir:
+      #kafka:
+      #hapi-fhir:
       reverse-proxy:
-      traefik:
+      #traefik:
       keycloak:
       public:
       default:
-      prometheus:
-      reprocess:
+      #prometheus:
+      #reprocess:
     environment:
       - mongo_url=${OPENHIM_MONGO_URL}
       - mongo_atnaUrl=${OPENHIM_MONGO_ATNAURL}
@@ -113,12 +113,12 @@ services:
           memory: ${OPENHIM_CONSOLE_MEMORY_RESERVE}
 
 networks:
-  kafka:
-    name: kafka_public
-    external: true
-  hapi-fhir:
-    name: hapi-fhir_public
-    external: true
+  #kafka:
+    #name: kafka_public
+    #external: true
+  #hapi-fhir:
+   # name: hapi-fhir_public
+    #external: true
   reverse-proxy:
     name: reverse-proxy_public
     external: true
@@ -131,10 +131,10 @@ networks:
   public:
     name: openhim_public
     external: true
-  prometheus:
-    name: prometheus_public
-    external: true
-  reprocess:
-    name: reprocess_public
-    external: true
+  #prometheus:
+    #name: prometheus_public
+    #external: true
+  #reprocess:
+   # name: reprocess_public
+    #external: true
   default:

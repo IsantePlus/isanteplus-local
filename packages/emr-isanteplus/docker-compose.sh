@@ -25,6 +25,9 @@ for i in $(seq 1 $NUM_INSTANCES); do
   cat <<SERVICE >> docker-compose.yml
   $SERVICE_NAME:
     image: itechuw/docker-isanteplus-server:local
+    build:
+      context: .
+      dockerfile: Dockerfile
     environment:
       - OMRS_JAVA_MEMORY_OPTS=\${OMRS_JAVA_MEMORY_OPTS}
       - OMRS_CONFIG_CONNECTION_SERVER=\${OMRS_CONFIG_CONNECTION_SERVER}

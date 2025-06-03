@@ -20,12 +20,10 @@ ENV OMRS_JAVA_SERVER_OPTS="-Dfile.encoding=UTF-8 -server -Djava.security.egd=fil
 
 # These environment variables are used to create the openmrs-server.properties file, which controls how OpenMRS initializes
 ENV OMRS_CONFIG_ADD_DEMO_DATA="false"
-ENV OMRS_CONFIG_ADMIN_USER_PASSWORD="Admin123"
 ENV OMRS_CONFIG_AUTO_UPDATE_DATABASE="true"
 # valid values are mysql and postgres
 ENV OMRS_CONFIG_CONNECTION_TYPE="mysql"
 ENV OMRS_CONFIG_CONNECTION_USERNAME="mysqluser"
-ENV OMRS_CONFIG_CONNECTION_PASSWORD="mysqlpw"
 ENV OMRS_CONFIG_CONNECTION_SERVER="localhost"
 ENV OMRS_CONFIG_CONNECTION_NAME="openmrs"
 ENV OMRS_CONFIG_CREATE_DATABASE_USER="false"
@@ -33,6 +31,12 @@ ENV OMRS_CONFIG_CREATE_TABLES="false"
 ENV OMRS_CONFIG_HAS_CURRENT_OPENMRS_DATABASE="true"
 ENV OMRS_CONFIG_INSTALL_METHOD="auto"
 ENV OMRS_CONFIG_MODULE_WEB_ADMIN="true"
+
+# Managed by Docker Secrets
+# ENV OMRS_CONFIG_ADMIN_USER_PASSWORD=""
+# ENV OMRS_CONFIG_CONNECTION_PASSWORD=""
+ENV OMRS_CONFIG_ADMIN_USER_PASSWORD_FILE="/run/secrets/omrs_admin_password"
+ENV OMRS_CONFIG_CONNECTION_PASSWORD_FILE="/run/secrets/omrs_db_password"
 
 # These environment variables are meant to enable developer settings
 ENV OMRS_DEV_DEBUG_PORT="1044"
