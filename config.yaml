@@ -4,8 +4,8 @@ logPath: /tmp/logs
 
 packages:
   - interoperability-layer-openhim
-  - database-mysql
-  - emr-isanteplus
+  # - database-mysql
+  # - emr-isanteplus
   # - data-pipeline-isanteplus
   - reverse-proxy-nginx
 
