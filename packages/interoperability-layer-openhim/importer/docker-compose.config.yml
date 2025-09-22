@@ -1,7 +1,6 @@
 version: '3.9'
 
 services:
-  # container for executing config import scripts for setting up initial config
   interoperability-layer-openhim-config-importer:
     image: node:erbium-alpine
     environment:

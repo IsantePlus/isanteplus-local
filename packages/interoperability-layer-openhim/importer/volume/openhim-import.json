@@ -27,22 +27,88 @@
     }
   ],
   "Clients": [
+
     {
-      "roles": ["instant"],
-      "customTokenID": "test",
-      "clientID": "test",
-      "name": "Test Client"
-    },
-    {
+      "clientID": "isanteplus-local",
+      "name": "isanteplus-local",
       "roles": [
-        "emr"
+        "ianteplus-local"
       ],
-      "clientID": "isanteplus",
-      "name": "iSantePlus Demo",
       "passwordAlgorithm": "sha512",
-      "passwordSalt": "a31ca7a31c216138910953ae75530635",
-      "passwordHash": "b03433407c82dcf33300ec1ec36dfbd4caf6c8851c5b4ba6444c219b72934507fa075f51a0d4c2495ec00e24be2100145b975e39811cd476b96599b7028af609"
+      "passwordHash": "a4a535ffed525ed2b8eecb5e99173f3828848c121550d3238f8616dd6769e8eb7d2e7593b9a74dd2149b51251189da70ed36878dca10d34bdfc25167e28fb423",
+      "passwordSalt": "1d7d9ad9ce1250f8b6c57b22727accbe"
     }
   ],
-  "Channels": []
+  "Channels": [
+    {
+      "name": "LNSP Order Passthrough",
+      "urlPattern": "^/xdsrepository$",
+      "isAsynchronousProcess": false,
+      "methods": [
+        "GET",
+        "POST",
+        "DELETE",
+        "PUT",
+        "OPTIONS",
+        "HEAD",
+        "TRACE",
+        "CONNECT",
+        "PATCH"
+      ],
+      "type": "http",
+      "tcpPort": null,
+      "tcpHost": null,
+      "pollingSchedule": null,
+      "requestBody": true,
+      "responseBody": true,
+      "allow": [
+        "ianteplus-local"
+      ],
+      "whitelist": [],
+      "authType": "private",
+      "routes": [
+        {
+          "name": "/xdsrepository",
+          "type": "http",
+          "status": "enabled",
+          "secured": true,
+          "host": "openhimcore.sedish.net",
+          "port": 443,
+          "path": "",
+          "pathTransform": "",
+          "primary": true,
+          "username": "",
+          "password": "",
+          "forwardAuthHeader": true,
+          "waitPrimaryResponse": false,
+          "statusCodesCheck": "",
+          "kafkaClientId": "",
+          "kafkaTopic": ""
+        }
+      ],
+      "matchContentTypes": [],
+      "matchContentRegex": null,
+      "matchContentXpath": null,
+      "matchContentJson": null,
+      "matchContentValue": null,
+      "properties": [],
+      "txViewAcl": [],
+      "txViewFullAcl": [],
+      "txRerunAcl": [],
+      "status": "enabled",
+      "rewriteUrls": false,
+      "addAutoRewriteRules": true,
+      "rewriteUrlsConfig": [],
+      "autoRetryEnabled": true,
+      "autoRetryPeriodMinutes": 60,
+      "updatedBy": {
+        "id": "682c939ce363480591cdc433",
+        "name": "Super User"
+      },
+      "alerts": [],
+      "autoRetryMaxAttempts": 24
+    }
+  ],
+  "Mediators": [],
+  "ContactGroups": []
 }

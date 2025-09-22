@@ -19,7 +19,7 @@
     "OPENHIM_CONSOLE_INSTANCES": "1",
     "OPENHIM_CONSOLE_MAX_REPLICAS_PER_NODE": "1",
     "OPENHIM_CORE_MEDIATOR_HOSTNAME": "localhost",
-    "OPENHIM_MEDIATOR_API_PORT": "443",
+    "OPENHIM_MEDIATOR_API_PORT": "8090",
     "OPENHIM_CPU_LIMIT": "0",
     "OPENHIM_CPU_RESERVE": "0.05",
     "OPENHIM_MEMORY_LIMIT": "3G",
@@ -43,7 +43,7 @@
     "KC_OPENHIM_CLIENT_SECRET": "tZKfEbWf0Ka5HBNZwFrdSyQH2xT1sNMR",
     "KC_OPENHIM_ROOT_URL": "http://localhost",
     "KC_API_URL": "http://identity-access-manager-keycloak:8080",
-    "OPENHIM_CONSOLE_BASE_URL": "http://localhost",
+    "OPENHIM_CONSOLE_BASE_URL": "http://localhost:9000",
     "OPENHIM_API_HOST": "localhost",
     "OPENHIM_API_PORT": "8090"
   }
