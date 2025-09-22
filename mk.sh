@@ -1,5 +1,5 @@
-#./build-custom-images.sh
-./build-image.sh
+./build-custom-images.sh
+#./build-image.sh
 
 #./instant project down --env-file .env
 #./instant project destroy --env-file .env
@@ -24,6 +24,7 @@
 # ./instant package init -n database-mysql --env-file .env -d
 # ./instant package down -n database-mysql --env-file .env
 # ./instant package up -n database-mysql --env-file .env
+
 
 # #isanteplus
 # ./instant package remove -n emr-isanteplus --env-file .env

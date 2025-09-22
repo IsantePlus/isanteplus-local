@@ -62,6 +62,8 @@ EXPOSE 8080
 
 COPY ./entrypoint-wrapper.sh /entrypoint-wrapper.sh
 
+#add ./distribution/custom_modules /custom_modules
+
 RUN chmod +x /entrypoint-wrapper.sh
 
 ENTRYPOINT ls /custom_modules && /entrypoint-wrapper.sh
