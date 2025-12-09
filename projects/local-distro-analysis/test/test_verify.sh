@@ -7,8 +7,8 @@ set -e
 # Tests CLI arguments, error handling, output formats, and data extraction
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-VERIFY_SCRIPT="$SCRIPT_DIR/verify_modules.sh"
-TEST_DIR="$SCRIPT_DIR/../emr-isanteplus/distribution/openmrs_modules-2.8.4"
+VERIFY_SCRIPT="$SCRIPT_DIR/../verify_modules.sh"
+TEST_DIR="$(cd "$SCRIPT_DIR/../../emr-isanteplus/distribution/openmrs_modules-2.8.4" && pwd)"
 OUTPUT_CSV="$SCRIPT_DIR/test_output_2.8.4.csv"
 TEMP_DIR="$SCRIPT_DIR/test_temp"
 
@@ -59,7 +59,7 @@ run_test "Script is executable" "[ -x '$VERIFY_SCRIPT' ]"
 # Test 2: Test error handling - invalid directory
 run_test "Error handling for invalid directory" "
     output=\$(\"$VERIFY_SCRIPT\" /nonexistent/directory 2>&1)
-    echo \"\$output\" | grep -q 'Error: Directory'
+    echo \"\$output\" | grep -qi 'Error.*does not exist'
     [ \$? -eq 0 ]
 "
 
