@@ -1,0 +1,3 @@
+[submodule "projects/isanteplus_installation"]
+	path = projects/isanteplus_installation
+	url = https://github.com/IsantePlus/isanteplus_installation.git
