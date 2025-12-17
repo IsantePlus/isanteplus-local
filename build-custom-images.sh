@@ -64,7 +64,7 @@ while IFS= read -r line; do
 done <<< "$envs"
 
 # Build the Docker image with the custom environment variables
-docker build -t isanteplus-mysql:local ./projects/isanteplus-db -f ./projects/isanteplus-db/Dockerfile 
+# docker build -t isanteplus-mysql:local ./projects/isanteplus-db -f ./projects/isanteplus-db/Dockerfile 
 # docker build -t isanteplus-mysql:legacy ./projects/isanteplus-db -f ./projects/isanteplus-db/legacy.Dockerfile
 # docker build -t isanteplus-mysql:2.8.4 ./projects/isanteplus-db -f ./projects/isanteplus-db/legacy.Dockerfile
 
@@ -120,7 +120,7 @@ while IFS= read -r line; do
   export "$line"
 done <<< "$envs"
 
-docker build -t itechuw/docker-isanteplus-server:local ./projects/emr-isanteplus -f ./projects/emr-isanteplus/Dockerfile
+# docker build -t itechuw/docker-isanteplus-server:local ./projects/emr-isanteplus -f ./projects/emr-isanteplus/Dockerfile
 # docker build -t itechuw/docker-isanteplus-server:legacy ./projects/emr-isanteplus -f ./projects/emr-isanteplus/legacy.Dockerfile
 # docker build -t itechuw/docker-isanteplus-server:2.8.4 ./projects/emr-isanteplus -f ./projects/emr-isanteplus/2_8_4.Dockerfile
 
