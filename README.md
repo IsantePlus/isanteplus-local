@@ -21,11 +21,27 @@ This package can be installed either as a standalone, or attached to an existing
 - Docker
 - Docker Swarm initialized
 - Git
+- Git LFS (will be installed automatically by init script)
   
 ### Clone the repository
 ```bash
 git clone isanteplus-local
+cd isanteplus-local
 ```
+
+### Initialize Git LFS
+This repository uses [Git LFS](https://git-lfs.github.com/) to track large files (`.omod` modules and `.sql` database files). After cloning, you must initialize Git LFS:
+
+```bash
+./init-lfs.sh
+```
+
+This script will:
+- Check if Git LFS is installed, and install it if missing (macOS via Homebrew, Linux via system package manager)
+- Configure Git LFS for this repository
+- Fetch LFS-tracked files
+
+**Note:** If you don't have access to the LFS storage, some files may not be fetched. This is expected for contributors without LFS access.
 
 ### Run repository setup scripts
 ```bash
